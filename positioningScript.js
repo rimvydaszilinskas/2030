@@ -3,9 +3,16 @@ var window_width = $(window).width();
 var main_circle_holder = $(".main-circle-holder");
 var main_circle_empty = $("#main-circle-empty");
 var level_display = $("#level-display");
+var white_circle = $("#white-circle");
+
+//constants for the maths
+const RotatePerLevel = 21.1764706; // in deg
+const ShrinkRatio = 3.01; // at least 3.01
 
 $(document).ready(() => {
   // init code goes here
+  var window_height = $(window).height();
+  var window_width = $(window).width();
   change();
 });
 
@@ -21,14 +28,22 @@ function change(){
   resizeElements();
   // move elements accordingly
   moveCircle();
+  //move the level display
+  moveLevelDisplay();
+  //move the white circle to hide the unwantd items to be shown
+  moveWhiteCircle();
 };
 
 function resizeElements(){
   // resize the empty circle
   var originalWidth = main_circle_empty.width();
-  main_circle_empty.width(window_width / 4);
+  main_circle_empty.width(window_width / ShrinkRatio);
+  // calculate the shrink for the further elements resizing
   var shrink = main_circle_empty.width() / originalWidth;
+  // resize the level display
   level_display.width(level_display.width() * shrink);
+  // resize the white circle
+  white_circle.width(main_circle_empty.width() * 0.865);
 };
 
 function moveCircle(){
@@ -41,15 +56,10 @@ function moveCircle(){
     left = window_width / 3 + widthLeft / 2;
     if(heightLeft > 0){
       top = window_height / 3 + heightLeft / 2;
-      console.log(1);
     } else if(heightLeft === 0){
       top = window_height / 3;
-      console.log(2);
-
     } else {
       top = (window_height / 3) - (heightLeft / 2 * (-1));
-      console.log(3 + ". Height left: " + heightLeft);
-
     }
   }else if(widthLeft === 0){
     // TODO count the required parameters for this case
@@ -64,3 +74,21 @@ function moveCircle(){
     "color" : "green"
   });
 }
+
+function moveLevelDisplay(){
+  var widthLeft = (main_circle_empty.width() - level_display.width()) / 2;
+
+  level_display.css({
+    "left": widthLeft,
+  });
+
+};
+
+function moveWhiteCircle(){
+  var widthLeft = (main_circle_empty.width() - white_circle.width()) / 2;
+  var heightLeft = (main_circle_empty.height() - white_circle.height()) / 2;
+  white_circle.css({
+    "left" : widthLeft,
+    "top" : heightLeft,
+  });
+};

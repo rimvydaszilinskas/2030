@@ -9,8 +9,16 @@ html{
 
 #main-circle-empty{
   position: absolute;
+  z-index: 1;
 }
 
 #level-display{
   position: absolute;
+  transform-origin: 50% 68.3614178%;
+  z-index: 2;
+}
+
+#white-circle{
+  position: absolute;
+  z-index: 3;
 }

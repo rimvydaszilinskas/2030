@@ -2,8 +2,12 @@ var window_height = $(window).height();
 var window_width = $(window).width();
 var main_circle_holder = $(".main-circle-holder");
 var main_circle_empty = $("#main-circle-empty");
-var level_display = $("#level-display");
+var level_display1 = $("#level-display-1");
+var level_displays = $(".level-display")
 var white_circle = $("#white-circle");
+
+//player elements
+var player_row = $(".player-row");
 
 //constants for the maths
 const RotatePerLevel = 21.1764706; // in deg
@@ -14,6 +18,8 @@ $(document).ready(() => {
   var window_height = $(window).height();
   var window_width = $(window).width();
   change();
+  // $(".loading").hide("fast");
+  // $(".game").show("fast");
 });
 
 $(window).resize(() => {
@@ -41,7 +47,9 @@ function resizeElements(){
   // calculate the shrink for the further elements resizing
   var shrink = main_circle_empty.width() / originalWidth;
   // resize the level display
-  level_display.width(level_display.width() * shrink);
+  level_displays.each((index, element) => {
+    $(element).width($(element).width() * shrink);
+  });
   // resize the white circle
   white_circle.width(main_circle_empty.width() * 0.865);
 };
@@ -76,9 +84,9 @@ function moveCircle(){
 }
 
 function moveLevelDisplay(){
-  var widthLeft = (main_circle_empty.width() - level_display.width()) / 2;
+  var widthLeft = (main_circle_empty.width() - level_display1.width()) / 2;
 
-  level_display.css({
+  level_display1.css({
     "left": widthLeft,
   });
 

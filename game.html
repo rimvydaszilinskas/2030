@@ -9,20 +9,64 @@
   <meta name="author" content="Rimvydas Zilinskas">
 
   <link rel="stylesheet" href="styles.css" />
-
 </head>
 
 <body>
-  <div class="errorMessage" hidden>
+  <div class="errorMessage jsError">
+    <h2>JavaScript disabled!</h2>
+    <img class="logo error" src="images/logo_2030_dark.svg" />
+    <p>
+      Please enable JavaScript to start the game.
+    </p>
+  </div>
+
+  <div class="errorMessage screenSize">
 
   </div>
-  <div class="main-circle-holder">
-    <img id="main-circle-empty" src="images/main_circle_empty.svg" />
-    <img id="level-display" src="images/level_one_art.svg"/>
-    <img id="white-circle" src="images/white_circle.svg" />
+
+  <div class="loading" hidden>
+    Game is laoding
+
+  </div>
+
+  <div class="game" hidden>
+    <div class="playerRow inverted">
+
+    </div>
+    <div class="main-circle-holder">
+      <img id="main-circle-empty" src="images/main_circle_empty.svg" />
+      <img class="level-display" id="level-display-1" src="images/level_1_art.svg" />
+
+      <!-- <img id="white-circle" src="images/white_circle.svg" /> -->
+    </div>
+    <div class="player-row">
+      <div class="level-row">
+        <img class="level-minus inline" src="images/navigation-negative.svg" />
+        <div class="level-number inline">
+          <span class="level-numeric">01</span>
+          <br />
+          <span>Level</span>
+        </div>
+        <img class="level-plus inline" src="images/navigation-positive.svg" />
+      </div>
+      <div class="user-row">
+        <div class="inline">
+          <img class="logo" src="images/logo_2030_dark.svg"/>
+        </div>
+        <div class="inline userMessage">
+          <p class="user-text inline">Welcome to the game</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script>
+    if(jQuery){
+      $(".errorMessage").hide();
+      $(".game").show("fast");
+    }
+  </script>
   <script src="levelScript.js"></script>
   <script src="positioningScript.js"></script>
 </body>

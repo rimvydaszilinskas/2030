@@ -3,6 +3,11 @@ html{
   width: 100%;
 }
 
+body{
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
 .main-circle-holder{
   position: absolute;
 }
@@ -12,13 +17,68 @@ html{
   z-index: 1;
 }
 
-#level-display{
+.level-display{
   position: absolute;
-  transform-origin: 50% 68.3614178%;
+  /* transform-origin: 50% 68.3614178%; */
   z-index: 2;
+}
+
+.player-Row{
+  position: absolute;
 }
 
 #white-circle{
   position: absolute;
   z-index: 3;
+}
+
+.logo.error{
+  height: 15%;
+}
+
+.player-row{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.user-row .logo {
+  width: 150px;
+}
+
+.player-row .inline{
+  display: inline;
+}
+
+.userMessage{
+  text-align: center;
+  width: 500px;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+
+.level-number{
+  background-color: red;
+  min-width: 75px;
+  min-height: 75px;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: white;
+}
+
+.level-number .level-numeric{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+@media (max-width: 720px){
+  .errorMessage.jsError{
+    display: none;
+  }
+
+  .errorMessage.screenSize{
+    display: inline-block;
+  }
 }

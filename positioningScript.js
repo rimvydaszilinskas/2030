@@ -7,17 +7,25 @@ var level_displays = $(".level-display")
 var white_circle = $("#white-circle");
 
 //player elements
-var player_row = $(".player-row");
+var player_rows = $(".player-row");
+var player_row_inverted = $("#inverted-player-row");
+var level_rows = $(".level-row");
+var user_rows = $(".user-row");
+var logo_holders = $(".logo-holder");
+var user_messages = $(".user-message");
+var level_numbers = $(".level-number")
 
 //constants for the maths
 const RotatePerLevel = 21.1764706; // in deg
-const ShrinkRatio = 3.01; // at least 3.01
+const ShrinkRatio = 3.1; // at least 3.01
 
 $(document).ready(() => {
   // init code goes here
   var window_height = $(window).height();
   var window_width = $(window).width();
   change();
+  // $(".game").show("fast");
+
   // $(".loading").hide("fast");
   // $(".game").show("fast");
 });
@@ -38,6 +46,8 @@ function change(){
   moveLevelDisplay();
   //move the white circle to hide the unwantd items to be shown
   moveWhiteCircle();
+  //move and position elements in the user Row
+  positionUserRow();
 };
 
 function resizeElements(){
@@ -89,8 +99,7 @@ function moveLevelDisplay(){
   level_display1.css({
     "left": widthLeft,
   });
-
-};
+}
 
 function moveWhiteCircle(){
   var widthLeft = (main_circle_empty.width() - white_circle.width()) / 2;
@@ -99,4 +108,33 @@ function moveWhiteCircle(){
     "left" : widthLeft,
     "top" : heightLeft,
   });
-};
+}
+
+function positionUserRow(){
+  //move the level display with arrows
+  level_rows.each((index, element) => {
+    var padding = $(window).width() / 4;
+
+    $(element).css({
+      "margin-left" : padding,
+    });
+    // alert(padding);
+  });
+
+  //move the user message
+  user_messages.each((index, element) => {
+    var left_padding = ($(window).width() - user_messages.width()) / 2;
+    left_padding -= logo_holders.width();
+    var padding = (user_rows.height() - user_messages.height()) / 2;
+    $(element).css({
+      "margin-left" : left_padding,
+      "margin-top" : padding,
+      "margin-bottom" : padding
+    });
+    // $(".player-row.inverted").html($(element).html());
+  });
+
+  // copy the user message row
+  player_row_inverted.html(player_rows.html());
+  console.log($("#inverted-player-row .user-message").html());
+}

@@ -42,6 +42,11 @@ body{
   width: 100%;
 }
 
+.player-row.inverted{
+  top: 0;
+  bottom: auto;
+}
+
 .user-row .logo {
   width: 150px;
 }
@@ -50,27 +55,39 @@ body{
   display: inline;
 }
 
-.userMessage{
-  text-align: center;
-  width: 500px;
+.user-message{
+  /* text-align: center; */
+  /* width: 500px; */
   font-weight: bold;
   font-size: 1.3em;
+  position: absolute;
 }
 
+.level-row{
+  padding-bottom: 5px;
+}
 
 .level-number{
   background-color: red;
-  min-width: 75px;
-  min-height: 75px;
+  width: 75px;
+  height: 75px;
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
   color: white;
 }
 
 .level-number .level-numeric{
   font-size: 2em;
-  font-weight: bold;
+}
+
+.level-plus, .level-minus{
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.inverted{
+  transform: rotate(180deg);
 }
 
 @media (max-width: 720px){

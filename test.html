@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>2030</title>
+  <meta name="description" content="2030 Game site">
+  <meta name="author" content="Rimvydas Zilinskas">
+  <style>
+  .item {
+    position: relative;
+    float: left;
+  }
+
+  .item h2 {
+    text-align:center;
+    position: absolute;
+    line-height: 125px;
+    width: 100%;
+  }
+
+  svg {
+    transform: rotate(-90deg);
+  }
+
+  .circle_animation {
+    stroke-dasharray: 942; /* this value is the pixel circumference of the circle */
+    stroke-dashoffset: 942;
+    transition: all 1s linear;
+  }
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="item">
+    <h2>0</h2>
+    <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+      <circle id="circle" class="circle_animation" r="150" cy="150" cx="150" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+    </svg>
+  </div>
+  <!-- <img src="images/Level_1.svg" /> -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script>
+  var time = 255;
+  var initialOffset = '942';
+  var i = 1
+
+  /* Need initial run as interval hasn't yet occured... */
+  $('.circle_animation').css('stroke-dashoffset', initialOffset-(1*(initialOffset/time)));
+  $('h2').text("5:00");
+  var interval = setInterval(function() {
+    var minutesLeft = Math.floor((time - i) / 60);
+    var secondsLeft = (time-i) % 60;
+    if(secondsLeft < 10){
+      var seconds = "0" + secondsLeft;
+    } else {
+      var seconds = secondsLeft;
+    }
+    console.log(minutesLeft + ":" + seconds);
+    $('h2').text(minutesLeft + ":" + seconds);
+    if (i == time) {
+      clearInterval(interval);
+      return;
+    }
+    $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
+    i++;
+  }, 1000);
+  </script>
+</body>
+</html>

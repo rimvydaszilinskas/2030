@@ -15,6 +15,10 @@ var logo_holders = $(".logo-holder");
 var user_messages = $(".user-message");
 var level_numbers = $(".level-number")
 
+//timer elements
+var svg_timer_holder = $("#svg-timer-holder");
+var timer_circle = $("#timer-circle");
+
 //constants for the maths
 const RotatePerLevel = 21.1764706; // in deg
 const ShrinkRatio = 3.1; // at least 3.01
@@ -26,7 +30,7 @@ $(document).ready(() => {
   change();
   // $(".game").show("fast");
 
-  // $(".loading").hide("fast");
+  $(".loading").hide("fast");
   // $(".game").show("fast");
 });
 
@@ -48,6 +52,8 @@ function change(){
   moveWhiteCircle();
   //move and position elements in the user Row
   positionUserRow();
+  //position the timer circle
+  positionTimerCircle();
 };
 
 function resizeElements(){
@@ -89,7 +95,7 @@ function moveCircle(){
   main_circle_holder.css({
     "top" : top,
     "left" : left,
-    "color" : "green"
+    // "color" : "green"
   });
 }
 
@@ -136,5 +142,21 @@ function positionUserRow(){
 
   // copy the user message row
   player_row_inverted.html(player_rows.html());
-  console.log($("#inverted-player-row .user-message").html());
+  // console.log($("#inverted-player-row .user-message").html());
+}
+
+function positionTimerCircle(){
+  var main_circle_width = main_circle_empty.width();
+  var center = main_circle_width / 2;
+  var radius = center * 0.85;
+  var circumference = radius * Math.PI * 2;
+  svg_timer_holder.width(main_circle_width);
+  svg_timer_holder.height(main_circle_width);
+  timer_circle.attr("cx", center).attr("cy", center).attr("r", radius);
+  timer_circle.css({
+    "stroke-dasharray" : circumference, /* this value is the pixel circumference of the circle */
+    "stroke-dashoffset" : circumference,
+  });
+  initialOffset = circumference;
+
 }

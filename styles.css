@@ -90,6 +90,22 @@ body{
   transform: rotate(180deg);
 }
 
+/* timer circle style */
+#svg-timer-holder{
+  position: absolute;
+  z-index: 4;
+}
+
+#svg-timer-holder{
+  transform: rotate(-90deg);
+  /* display: none; */
+}
+
+.timer-circle {
+  stroke-dasharray: 440; /* this value is the pixel circumference of the circle */
+  stroke-dashoffset: 440;
+}
+
 @media (max-width: 720px){
   .errorMessage.jsError{
     display: none;

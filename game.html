@@ -24,7 +24,7 @@
 
   </div>
 
-  <div class="loading" hidden>
+  <div class="loading">
     Game is laoding
   </div>
 
@@ -45,7 +45,7 @@
         </div>
         <div class="inline user-message">
           <!-- has to match the other user message -->
-          <p class="user-text inline">Welcome to the games</p>
+          <p class="user-text inline">Message for the user</p>
         </div>
       </div>
     </div>
@@ -54,8 +54,14 @@
       <div class="main-circle-holder">
         <img id="main-circle-empty" src="images/main_circle_empty.svg" />
         <img class="level-display" id="level-display-1" src="images/level_1_art.svg" />
+        <!-- <div class="timer-holder"> -->
+          <!-- <h2>0</h2> -->
+          <svg id="svg-timer-holder" width="100" height="100" xmlns="http://www.w3.org/2000/svg" hidden>
+            <circle id="timer-circle" class="timer-circle" r="150" cy="250" cx="250" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+          </svg>
+        <!-- </div> -->
         <!-- TODO: add more level media -->
-        <!-- <img id="white-circle" src="images/white_circle.svg" /> -->
+        <img id="white-circle" src="images/white_circle.svg" />
       </div>
     </div>
 
@@ -69,6 +75,7 @@
         <img class="level-plus" src="images/navigation-positive.svg" style="display: inline-block"/>
       </div>
       <div class="user-row">
+
         <div class="logo-holder inline">
           <img class="logo" src="images/logo_2030_dark.svg"/>
         </div>
@@ -81,13 +88,15 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
   <script>
     if(jQuery){
       $(".errorMessage").hide();
       $(".game").show();
     }
   </script>
-  <script src="levelScript.js"></script>
+  <!-- <script src="levelScript.js"></script> -->
+  <script src="script.js"></script>
   <script src="positioningScript.js"></script>
 </body>
 </html>

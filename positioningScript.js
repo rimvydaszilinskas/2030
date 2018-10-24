@@ -5,6 +5,10 @@ var main_circle_empty = $("#main-circle-empty");
 var level_display1 = $("#level-display-1");
 var level_displays = $(".level-display")
 var white_circle = $("#white-circle");
+var circle_text_holder = $("#circle-text-holder");
+var circle_text = $("#circle-text");
+var instruction_message_holder = $(".instruction-message-holder");
+var instruction_message = $(".instruction-message")
 
 //player elements
 var player_rows = $(".player-row");
@@ -54,6 +58,12 @@ function change(){
   positionUserRow();
   //position the timer circle
   positionTimerCircle();
+  //position the hidden wheel of fortune
+  positionWheelOfFortune();
+  //position the main text in the circular area
+  positionMainText();
+  //position the instruction messages on both sides of the wheel
+  positionInstructionMessages();
 };
 
 function resizeElements(){
@@ -116,6 +126,34 @@ function moveWhiteCircle(){
   });
 }
 
+function positionMainText(){
+  var widthLeft = (main_circle_empty.width() - circle_text.width()) / 2;
+  var heigthLeft = (main_circle_empty.height() - circle_text.height()) / 2;
+  // alert(heigthLeft);
+  circle_text.css({
+    // "display" : "absolute",
+    // "color" : "red",
+    "left" : widthLeft,
+    "top" : heigthLeft,
+  });
+}
+
+// position the main instructional area on the sides of the circle
+function positionInstructionMessages(){
+  var inverted_instruction = $(".instruction-message.inverted");
+  var height = ($(window).height() - instruction_message_holder.height()) / 2;
+  var left = ($(window).width() / ShrinkRatio - instruction_message_holder.width()) / 2;
+
+  instruction_message_holder.css({
+    "left" : left ,
+    "top" : height,
+  });
+
+  inverted_instruction.css({
+    "right" : left + "px !important",
+  });
+}
+
 function positionUserRow(){
   //move the level display with arrows
   level_rows.each((index, element) => {
@@ -148,7 +186,7 @@ function positionUserRow(){
 function positionTimerCircle(){
   var main_circle_width = main_circle_empty.width();
   var center = main_circle_width / 2;
-  var radius = center * 0.85;
+  var radius = center * 0.86;
   var circumference = radius * Math.PI * 2;
   svg_timer_holder.width(main_circle_width);
   svg_timer_holder.height(main_circle_width);
@@ -158,5 +196,8 @@ function positionTimerCircle(){
     "stroke-dashoffset" : circumference,
   });
   initialOffset = circumference;
+}
+
+function positionWheelOfFortune(){
 
 }

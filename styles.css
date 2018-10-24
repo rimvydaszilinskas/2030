@@ -32,6 +32,20 @@ body{
   z-index: 3;
 }
 
+#circle-text{
+  position: absolute;
+  font-size: 2em;
+  font-weight: bold;
+  z-index: 4;
+}
+
+.instruction-message-holder{
+  position: absolute;
+  font-size: 1.5em;
+  max-width: 25%;
+  text-align: center;
+}
+
 .logo.error{
   height: 15%;
 }

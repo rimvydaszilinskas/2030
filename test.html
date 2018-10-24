@@ -8,68 +8,133 @@
   <meta name="description" content="2030 Game site">
   <meta name="author" content="Rimvydas Zilinskas">
   <style>
-  .item {
-    position: relative;
-    float: left;
-  }
+    body{
+      text-align: center;
+    }
 
-  .item h2 {
-    text-align:center;
-    position: absolute;
-    line-height: 125px;
-    width: 100%;
-  }
+    #wheel{
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
 
-  svg {
-    transform: rotate(-90deg);
-  }
-
-  .circle_animation {
-    stroke-dasharray: 942; /* this value is the pixel circumference of the circle */
-    stroke-dashoffset: 942;
-    transition: all 1s linear;
-  }
-
-
+    #wheel:after{
+      content: "";
+      background: red;
+      border: 2px solid white;
+      position: absolute;
+      top: -7px;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      margin-left: -7px;
+      transform: rotate(45deg);
+    }
   </style>
 </head>
 
 <body>
 
-  <div class="item">
-    <h2>0</h2>
-    <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-      <circle id="circle" class="circle_animation" r="150" cy="150" cx="150" stroke-width="8" stroke="#6fdb6f" fill="none"/>
-    </svg>
+  <div id="wheel">
+    <canvas id="canvas" width="400" height="400"></canvas>
   </div>
-  <!-- <img src="images/Level_1.svg" /> -->
-
+  <br>
+    <button id="spin">Stop!</button>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script>
-  var time = 255;
-  var initialOffset = '942';
-  var i = 1
+    function rand(min, max) {
+      return Math.random() * (max - min) + min;
+    }
 
-  /* Need initial run as interval hasn't yet occured... */
-  $('.circle_animation').css('stroke-dashoffset', initialOffset-(1*(initialOffset/time)));
-  $('h2').text("5:00");
-  var interval = setInterval(function() {
-    var minutesLeft = Math.floor((time - i) / 60);
-    var secondsLeft = (time-i) % 60;
-    if(secondsLeft < 10){
-      var seconds = "0" + secondsLeft;
-    } else {
-      var seconds = secondsLeft;
+    var color = ['red','green','blue','yellow','purple','black', "brown", "pink"];
+    var label = ["Civil Society Representative", "Customer", "Environmentalist", "Economist", "Policymaker", "Stakeholder", "Shareholder", "Supply Chain Manager"];
+    var slices = color.length;
+    var sliceDeg = 360/slices;
+    var deg = rand(0, 360);
+    var speed = 0;
+    var slowDownRand = 0;
+    var ctx = canvas.getContext('2d');
+    var width = canvas.width; // size
+    var center = width/2;      // center
+    var isStopped = false;
+    var lock = false;
+
+    function deg2rad(deg) {
+      return deg * Math.PI/180;
     }
-    console.log(minutesLeft + ":" + seconds);
-    $('h2').text(minutesLeft + ":" + seconds);
-    if (i == time) {
-      clearInterval(interval);
-      return;
+
+    function drawSlice(deg, color) {
+      ctx.beginPath();
+      ctx.fillStyle = color;
+      ctx.moveTo(center, center);
+      ctx.arc(center, center, width/2, deg2rad(deg), deg2rad(deg+sliceDeg));
+      ctx.lineTo(center, center);
+      ctx.fill();
     }
-    $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
-    i++;
-  }, 1000);
+
+    function drawText(deg, text) {
+      ctx.save();
+      ctx.translate(center, center);
+      ctx.rotate(deg2rad(deg));
+      ctx.textAlign = "right";
+      ctx.fillStyle = "#fff";
+      ctx.font = 'bold 20px sans-serif';
+      ctx.fillText(text, 180, 10);
+      ctx.restore();
+    }
+
+    function drawImg() {
+      ctx.clearRect(0, 0, width, width);
+      for(var i=0; i<slices; i++){
+        drawSlice(deg, color[i]);
+        drawText(deg+sliceDeg/2, label[i]);
+        deg += sliceDeg;
+      }
+      // ctx.beginPath();
+      // ctx.arc(center, center, 50, 0, 2 * Math.PI, false);
+      // ctx.fillStyle = "white";
+      // ctx.fill();
+      // ctx.save();
+      // ctx.translate(center, center);
+      // ctx.rotate(0);
+      // ctx.textarea = "center";
+      // ctx.fillStyle = "black";
+      // ctx.font = "bold 10px sans-serif";
+      // ctx.fillText("SPIN", -10, 0);
+      // ctx.restore();
+    }
+
+    (function anim() {
+      deg += speed;
+      deg %= 360;
+
+      // Increment speed
+      if(!isStopped && speed<3){
+        speed = speed+1 * 0.1;
+      }
+      // Decrement Speed
+      if(isStopped){
+        if(!lock){
+          lock = true;
+          slowDownRand = rand(0.994, 0.998);
+        }
+        speed = speed>0.2 ? speed*=slowDownRand : 0;
+      }
+      // Stopped!
+      if(lock && !speed){
+        var ai = Math.floor(((360 - deg - 90) % 360) / sliceDeg); // deg 2 Array Index
+        ai = (slices+ai)%slices; // Fix negative index
+        return alert("You got:\n"+ label[ai] ); // Get Array Item from end Degree
+      }
+
+      drawImg();
+      window.requestAnimationFrame( anim );
+    }());
+
+    document.getElementById("spin").addEventListener("mousedown", function(){
+      isStopped = true;
+    }, false);
+
   </script>
 </body>
 </html>

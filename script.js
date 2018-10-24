@@ -1,10 +1,11 @@
-var time = 10;
-var initialOffset = '2464.9';
-var i = 1;
-
 // button vars
 var increase_level_btn = $(".level-plus");
 var decrease_level_btn = $(".level-minus");
+
+
+var time = 300; // time is displayed in seconds
+var initialOffset = '2464.9'; // radius!
+var i = 1;
 
 increase_level_btn.on("click", ()=>{
   $(".user-text").fadeOut("fast", ()=>{
@@ -28,12 +29,26 @@ function changeMedia(){
   $(".user-text").html("Introduction from facilitator");
 }
 
+function changeUserMessages(message){
+
+}
+
+function changeInstructionMessages(message){
+
+}
+
+function changeCircleCenterMedia(object){
+  
+}
+
 //start the circular timer
 function startTimer(){
+
   svg_timer_holder.css({
     "transition": "all 1s linear",
     "display" : "inline",
   });
+
   $('.timer-circle').css('stroke-dashoffset', initialOffset-(1*(initialOffset/time)));
   // $('h2').text("5:00");
   var interval = setInterval(function() {

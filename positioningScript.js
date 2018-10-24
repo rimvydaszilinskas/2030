@@ -111,9 +111,24 @@ function moveCircle(){
 
 function moveLevelDisplay(){
   var widthLeft = (main_circle_empty.width() - level_display1.width()) / 2;
+  level_displays.each((index, element) => {
+    var top = level_display1.height() - $(element).height();
 
-  level_display1.css({
-    "left": widthLeft,
+    if(parseInt($(element).attr("id").split("-")[2]) >= 7){
+      top = main_circle_empty.height() - $(element).height() - top;
+      
+      $(element).css({
+        "top" : top,
+      });
+    } else {
+      $(element).css({
+        "top" : top,
+      });
+    }
+
+  });
+  level_displays.css({
+    "left" : widthLeft,
   });
 }
 
@@ -204,5 +219,5 @@ function positionTimerCircle(){
 }
 
 function positionWheelOfFortune(){
-
+  // TODO: insert code here
 }

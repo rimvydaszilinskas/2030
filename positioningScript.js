@@ -140,17 +140,22 @@ function positionMainText(){
 
 // position the main instructional area on the sides of the circle
 function positionInstructionMessages(){
-  var inverted_instruction = $(".instruction-message.inverted");
+  var inverted_instruction = $(".instruction-message-holder.inverted");
   var height = ($(window).height() - instruction_message_holder.height()) / 2;
   var left = ($(window).width() / ShrinkRatio - instruction_message_holder.width()) / 2;
 
-  instruction_message_holder.css({
-    "left" : left ,
-    "top" : height,
-  });
-
-  inverted_instruction.css({
-    "right" : left + "px !important",
+  instruction_message_holder.each((index, element) => {
+    if($(element).hasClass("inverted")){
+      $(element).css({
+        "right" : left,
+        "top" : height,
+      });
+    }else {
+      $(element).css({
+        "left" : left,
+        "top" : height,
+      });
+    }
   });
 }
 

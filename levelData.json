@@ -1,0 +1,62 @@
+{
+  "levels" : [
+    {
+      "color" : "#e42832",
+      "steps" : [
+        {
+          "specialScreen" : false,
+          "instructionMessage" : null,
+          "userMessage" : "Introduction from facilitator",
+          "circleCenter" : {
+            "dataType" : "text",
+            "text" : "Introduction",
+            "hider" : false,
+          },
+        },
+        {
+          "specialScreen" : false,
+          "instructionMessage" : "Please follow the facilitator",
+          "userMessage" : "Agenda for today",
+          "circleCenter" : {
+            "dataType" : "text",
+            "text" : "Agenda for today",
+            "hider" : true,
+          },
+        },
+        {
+          "specialScreen" : false,
+          "instructionMessage" : "Round introduction at the table",
+          "userMessage" : "Please introduce each other",
+          "circleCenter" : {
+            "dataType" : "image",
+            "image" : "introduction.svg",
+            "hider" : true,
+            "action" : "timer",
+            "time" : 300,
+          },
+        },
+      ],
+    },
+    {
+      "color" : "#daa449",
+    },
+    {
+      "color" : "#4aa547",
+    },
+    {
+      "color" : "#c9223d",
+    },
+    {
+      "color" : "#ea503e",
+    },
+    {
+      "color" : "#23badd",
+    },
+    {
+      "color" : "#fcbf2c",
+    },
+    {
+      "color" : "#a01d4c",
+    }
+  ],
+}

@@ -8,16 +8,7 @@ var initialOffset = '2464.9'; // radius!
 var i = 1;
 
 increase_level_btn.on("click", ()=>{
-  $(".user-text").fadeOut("fast", ()=>{
-    changeMedia();
-  });
-  $(".user-text").promise().done(()=>{
-    $(".user-text").fadeIn("fast", ()=>{});
-  });
-
-  $(".user-text").promise().done(()=>{
-    positionUserRow();
-  });
+  changeMedia();
 });
 
 decrease_level_btn.on("click", ()=>{
@@ -26,7 +17,18 @@ decrease_level_btn.on("click", ()=>{
 
 //change the media to apropriate one
 function changeMedia(){
-  $(".user-text").html("Introduction from facilitator");
+  $(".user-text").fadeOut("fast", ()=>{
+    $(".user-text").html("Introduction from facilitator!!!");
+    $(".instruction-message").html("hello");
+  }).promise().done(()=>{
+    $(".user-text").fadeIn("fast", ()=>{});
+  });
+
+  $(".user-text").promise().done(()=>{
+    positionUserRow();
+    positionInstructionMessages();
+  });
+
 }
 
 function changeUserMessages(message){
@@ -38,7 +40,7 @@ function changeInstructionMessages(message){
 }
 
 function changeCircleCenterMedia(object){
-  
+
 }
 
 //start the circular timer
@@ -68,4 +70,11 @@ function startTimer(){
     $('.timer-circle').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
     i++;
   }, 1000);
+}
+
+//set the appropriate color
+function setColor(color){
+  $(".level-number").css({
+    "color" : color,
+  });
 }

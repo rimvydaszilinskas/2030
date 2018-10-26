@@ -212,7 +212,9 @@ class Game{
             },
             {
               specialScreen : true,
-              media : "fortune",
+              screenType : "fortune",
+              instructionMessage: null,
+              userMessage: "Please spin the wheel and remember the role attributed to you",
               circleCenter : {
                 dataType : "wheel",
                 // image : "introduction.svg",
@@ -348,7 +350,7 @@ class Game{
       this.currentLevel++;
       if(this.currentLevel === this.levelData.levels.length){
         this.currentLevel--;
-        return null;
+        return this.levelData.levels[this.currentLevel].steps[this.currentStep];
       }
       this.currentStep = 0;
     }
@@ -362,7 +364,7 @@ class Game{
       this.currentLevel--;
       if(this.currentLevel < 0){
         this.currentLevel++;
-        return null;
+        return this.levelData.levels[this.currentLevel].steps[this.currentStep];
       }
     }
 

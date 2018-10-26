@@ -130,6 +130,11 @@ body{
   stroke-dashoffset: 440;
 }
 
+#fortune-wheel{
+  position: absolute;
+  z-index: 4;
+}
+
 @media (max-width: 720px){
   .errorMessage.jsError{
     display: none;

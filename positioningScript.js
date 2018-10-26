@@ -12,6 +12,7 @@ var instruction_message = $(".instruction-message");
 var circle_img = $("#circle-img");
 var video_holder = $("#video-container");
 var video = $("#video");
+var fortune_wheel = $("#fortune-wheel");
 
 //player elements
 var player_rows = $(".player-row");
@@ -225,7 +226,14 @@ function positionTimerCircle(){
 }
 
 function positionWheelOfFortune(){
-  // TODO: insert code here
+  fortune_wheel.width(main_circle_empty.width() / 1.5);
+  var spacer_left = (main_circle_empty.width() - fortune_wheel.width()) / 2;
+  var spacer_top = (main_circle_empty.height() - fortune_wheel.height()) / 2;
+
+  fortune_wheel.css({
+    "top" : spacer_top,
+    "left" : spacer_left,
+  });
 }
 
 function positionCircleImage(isHiderOn){

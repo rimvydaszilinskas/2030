@@ -66,6 +66,9 @@ function applyStep(step, level, color){
   if(step.specialScreen){
     if(step.screenType === "video"){
       showVideo(step.videosrc);
+    } else if(step.screenType === "fortune"){
+      displayHider();
+      changeUserMessages(step.userMessage);
     }
     return;
   }

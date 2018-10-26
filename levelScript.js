@@ -34,7 +34,7 @@ class Game{
               userMessage : "Please introduce each other",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/introduceeachother.svg",
                 hider : true,
                 action : "timer",
                 time : 300,
@@ -51,8 +51,8 @@ class Game{
               userMessage : "Sustainable Development Goals explanation",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
-                hider : true,
+                image : "images/SDG12.svg",
+                hider : false,
               },
             },
             {
@@ -61,13 +61,14 @@ class Game{
               userMessage : null,
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
-                hider : false,
+                image : "images/video.svg",
+                hider : true,
               },
             },
             {
               specialScreen : true,
-
+              screenType : "video",
+              videosrc : "https://www.youtube.com/embed/mNaOE2zYnFI?rel=0;&autoplay=1&mute=1&showinfo=0&controls=0",
             },
           ],
         },
@@ -80,7 +81,7 @@ class Game{
               userMessage : "Mapping of the problem",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/problem3-1.svg",
                 hider : false,
               },
             },
@@ -90,7 +91,7 @@ class Game{
               userMessage : "Mapping of the problem",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/communication.svg",
                 hider : true,
               },
             },
@@ -100,7 +101,7 @@ class Game{
               userMessage : "How can companies benefit from tackling the problems",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/solvingproblem.svg",
                 hider : true,
               },
             },
@@ -110,7 +111,7 @@ class Game{
               userMessage : "This is a Simulation Scenario, therefore you can choose any company to represent.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/company-man.svg",
                 hider : true,
               },
             },
@@ -120,7 +121,7 @@ class Game{
               userMessage : "Time to be creative.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/persona.svg",
                 hider : true,
               },
             },
@@ -130,7 +131,7 @@ class Game{
               userMessage : "Combine these two words and create your own team name.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/target.svg",
                 hider : true,
               },
             },
@@ -145,7 +146,7 @@ class Game{
               userMessage : "Brainstorm session",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/brainstorm.svg",
                 hider : false,
               },
             },
@@ -155,7 +156,7 @@ class Game{
               userMessage : "Individual task.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/ideas.svg",
                 hider : true,
               },
             },
@@ -165,7 +166,7 @@ class Game{
               userMessage : "Please use only one minute each.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/sharing.svg",
                 hider : true,
               },
             },
@@ -180,7 +181,7 @@ class Game{
               userMessage : "Roadblock Please click to find out the news!",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/roadblock-01.svg",
                 hider : false,
               },
             },
@@ -190,7 +191,7 @@ class Game{
               userMessage : null,
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/denmark.svg",
                 hider : true,
               },
             },
@@ -205,7 +206,7 @@ class Game{
               userMessage : "Click and find out your new role.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/information-faces.svg",
                 hider : false,
               },
             },
@@ -224,7 +225,7 @@ class Game{
               userMessage : "This will be your perspective from now on.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/sharing-faces.svg",
                 hider : true,
               },
             },
@@ -239,7 +240,7 @@ class Game{
               userMessage : "Validation of ideas",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/human-cog.svg",
                 hider : false,
               },
             },
@@ -249,7 +250,7 @@ class Game{
               userMessage : "Think about the idea within the new perspective given by the role.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/human-cog.svg",
                 hider : true,
               },
             },
@@ -259,7 +260,7 @@ class Game{
               userMessage : "Vote for one final idea.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/human-cog.svg",
                 hider : false,
               },
             },
@@ -274,7 +275,7 @@ class Game{
               userMessage : "Create final pitch",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/presentation.svg",
                 hider : false,
               },
             },
@@ -284,7 +285,7 @@ class Game{
               userMessage : "Explain in few sentences what is your idea all about. Use the papers to write it down.",
               circleCenter : {
                 dataType : "image",
-                image : "introduction.svg",
+                image : "images/presentation.svg",
                 hider : true,
               },
             },

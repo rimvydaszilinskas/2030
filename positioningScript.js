@@ -8,7 +8,10 @@ var white_circle = $("#white-circle");
 var circle_text_holder = $("#circle-text-holder");
 var circle_text = $("#circle-text");
 var instruction_message_holder = $(".instruction-message-holder");
-var instruction_message = $(".instruction-message")
+var instruction_message = $(".instruction-message");
+var circle_img = $("#circle-img");
+var video_holder = $("#video-container");
+var video = $("#video");
 
 //player elements
 var player_rows = $(".player-row");
@@ -64,6 +67,10 @@ function change(){
   positionMainText();
   //position the instruction messages on both sides of the wheel
   positionInstructionMessages();
+  //position the circle img
+  positionCircleImage(false);
+  //position the video and its container
+  positionVideo();
 };
 
 function resizeElements(){
@@ -219,4 +226,31 @@ function positionTimerCircle(){
 
 function positionWheelOfFortune(){
   // TODO: insert code here
+}
+
+function positionCircleImage(isHiderOn){
+  var shrink = 3.4;
+  if(isHiderOn){
+    shrink = 1.5;
+  }
+  var width = main_circle_empty.width() / shrink;
+  var spacer = (main_circle_empty.width() - width) / 2;
+
+  circle_img.css({
+    "width" : width,
+    "margin-left" : spacer,
+    "margin-top" : spacer,
+  });
+}
+
+function positionVideo(){
+  video.width($(window).width() / 1.8)
+       .height($(window).height() / 1.8);
+  var spacer_left = ($(window).width() - video.width()) / 2;
+  var spacer_top = ($(window).height() - video.height()) / 2;
+
+  video_holder.css({
+    "top" : spacer_top,
+    "left" : spacer_left,
+  });
 }

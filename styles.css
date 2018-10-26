@@ -8,6 +8,10 @@ body{
   padding: 0 0 0 0;
 }
 
+#video-container{
+  position: absolute;
+}
+
 .main-circle-holder{
   position: absolute;
 }
@@ -36,6 +40,12 @@ body{
   position: absolute;
   font-size: 2em;
   font-weight: bold;
+  z-index: 4;
+  text-align: center;
+}
+
+#circle-img{
+  position: absolute;
   z-index: 4;
 }
 

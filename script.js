@@ -2,18 +2,22 @@
 var increase_level_btn = $(".level-plus");
 var decrease_level_btn = $(".level-minus");
 
+// media vars
+var level_number_holder = $(".level-number");
+var level_number = $(".level-numeric");
+
 
 var time = 300; // time is displayed in seconds
 var initialOffset = '2464.9'; // radius!
 var i = 1;
+var level_id_names = "#level-display-";
 
 var game = new Game();
 
 increase_level_btn.on("click", ()=>{
-  var level = game.next();
-  if(level != null){
-    changeMedia();
-    startTimer();
+  var step = game.next();
+  if(step != null){
+    applyStep(step, game.getLevelNumber(), game.getColor());
   } else {
 
   }
@@ -21,40 +25,58 @@ increase_level_btn.on("click", ()=>{
 });
 
 decrease_level_btn.on("click", ()=>{
-  var level = game.previous();
-  if(level != null){
-
+  var step = game.previous();
+  if(step != null){
+    applyStep(step, game.getLevelNumber(), game.getColor());
   } else {
 
   }
 });
 
-//change the media to apropriate one
-function changeMedia(){
+function applyStep(step, level, color){
+  setColor(color);
+  setLevelNumber(level);
+  changeUserMessages(step.userMessage);
+  if(step.instructionMessage != null)
+    changeInstructionMessages(step.instructionMessage);
+  else
+    changeInstructionMessages("");
+  changeCircleCenterMedia(step.circleCenter);
+  showHideLevelDisplays(level);
+}
+
+function changeUserMessages(message){
   $(".user-text").fadeOut("fast", ()=>{
-    $(".user-text").html("Introduction from facilitator");
-    $(".instruction-message").html("hello");
+    $(".user-text").html(message);
   }).promise().done(()=>{
     $(".user-text").fadeIn("fast", ()=>{});
   });
 
   $(".user-text").promise().done(()=>{
     positionUserRow();
-    positionInstructionMessages();
   });
-
-}
-
-function changeUserMessages(message){
-
 }
 
 function changeInstructionMessages(message){
+  $(".instruction-message").fadeOut("fast", () => {
+    $(".instruction-message").html(message);
+  }).promise().done(() => {
+    $(".instruction-message").fadeIn("fast", () => {});
+  });
 
+  $(".instruction-message").promise().done(() => {
+    positionInstructionMessages();
+  });
 }
 
 function changeCircleCenterMedia(object){
+  if(object.dataType === "image"){
 
+  } else if(object.dataType === "text"){
+
+  } else if(object.dataType === "fortune"){
+
+  }
 }
 
 //start the circular timer
@@ -84,11 +106,29 @@ function startTimer(){
     $('.timer-circle').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
     i++;
   }, 1000);
+
 }
 
 //set the appropriate color
 function setColor(color){
-  $(".level-number").css({
-    "color" : color,
+  level_number_holder.css({
+    "background-color" : color,
   });
+}
+
+//set the appropriate level number to the holder
+function setLevelNumber(levelNumber){
+  if(levelNumber < 10){
+    level_number.html("0" + levelNumber);
+  }
+}
+
+function showHideLevelDisplays(levelNumber){
+  for(var i=0; i<=7; i++){
+    if(i <= levelNumber){
+      $(level_id_names + i).show("fast");
+    } else {
+      $(level_id_names + i).hide("fast");
+    }
+  }
 }

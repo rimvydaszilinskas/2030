@@ -226,7 +226,7 @@ function positionTimerCircle(){
 }
 
 function positionWheelOfFortune(){
-  fortune_wheel.width(main_circle_empty.width() / 1.5);
+  fortune_wheel.width(main_circle_empty.width() / 1.15);
   var spacer_left = (main_circle_empty.width() - fortune_wheel.width()) / 2;
   var spacer_top = (main_circle_empty.height() - fortune_wheel.height()) / 2;
 

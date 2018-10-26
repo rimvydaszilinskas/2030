@@ -15,14 +15,32 @@ var level_id_names = "#level-display-";
 var expect_timer_start = false;
 var timer_started = false;
 var video = false;
+var fortune_wheel_active = false;
+
+var user1_role_set = false;
+var user2_role_set = false;
 
 var game = new Game();
+
+const roles = ["Civil Society Representative", "Customer", "Environmentalist", "Econimist", "Policymaker", "Stakeholder", "Shareholder", "Supply Chain Manager"];
 
 increase_level_btn.on("click", ()=>{
   var step = game.next();
 
+  if(step.specialScreen){
+    if(step.screenType == "fortune"){
+      if(user1_role_set && user2_role_set){
+        step = game.next();
+      }
+    }
+  }
+
   if(video == true){
     hideVideo();
+  }
+
+  if(fortune_wheel_active == true){
+    hideFortuneWheel();
   }
 
   if(step != null){
@@ -36,8 +54,20 @@ increase_level_btn.on("click", ()=>{
 decrease_level_btn.on("click", ()=>{
   var step = game.previous();
 
+  if(step.specialScreen){
+    if(step.screenType == "fortune"){
+      if(user1_role_set && user2_role_set){
+        step = game.previous();
+      }
+    }
+  }
+
   if(video == true){
     hideVideo();
+  }
+
+  if(fortune_wheel_active == true){
+    hideFortuneWheel();
   }
 
   if(step != null){
@@ -45,6 +75,11 @@ decrease_level_btn.on("click", ()=>{
   } else {
 
   }
+});
+
+$("#fortune-wheel").on("click", ()=>{
+  if(!user1_role_set || !user2_role_set)
+    startSpin();
 });
 
 $("#circle-img").on("click", ()=>{
@@ -67,7 +102,8 @@ function applyStep(step, level, color){
     if(step.screenType === "video"){
       showVideo(step.videosrc);
     } else if(step.screenType === "fortune"){
-      displayHider();
+      displayHider(true);
+      showWheelOfFortune();
       changeUserMessages(step.userMessage);
     }
     return;
@@ -208,6 +244,16 @@ function showVideo(src){
     $("#video-container").show("fast");
     video = true;
   });
+}
+
+function showWheelOfFortune(){
+  $("#fortune-wheel").show("fast");
+  fortune_wheel_active = true;
+}
+
+function hideFortuneWheel(){
+  $("#fortune-wheel").hide("fast");
+  fortune_wheel_active = false;
 }
 
 function hideVideo(){

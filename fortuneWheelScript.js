@@ -1,3 +1,5 @@
+// Code is used from dougTesting.net
+
 var wheelPower    = 0;
 var wheelSpinning = false;
 
@@ -46,7 +48,7 @@ function startSpin()
         }
         // Disable the spin button so can't click again while wheel is spinning.
 
-        document.getElementById('spin_button').className = "";
+        // document.getElementById('spin_button').className = "";
         // Begin the spin animation by calling startAnimation on the wheel object.
         theWheel.startAnimation();
         // Set to true so that power can't be changed and spin button re-enabled during
@@ -65,7 +67,21 @@ function resetWheel()
 
 function alertPrize(indicatedSegment)
 {
-    // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
-    alert("You have won " + indicatedSegment.text);
-    resetWheel();
+    var user1 = $("#instruction-user-1");
+    var user2 = $("#instruction-user-2");
+
+    var role = roles[indicatedSegment.text];
+    console.log(indicatedSegment.text);
+    console.log(roles);
+    if(!user1_role_set){
+      user1.html("Your role is: " + role);
+      user1_role_set = true;
+      resetWheel();
+      positionInstructionMessages();
+    } else if(!user2_role_set){
+      user2.html("Your role is: " + role);
+      user2_role_set = true;
+      positionInstructionMessages();
+    }
+
 }

@@ -45,14 +45,14 @@
         </div>
         <div class="inline user-message">
           <!-- has to match the other user message -->
-          <p class="user-text inline">Introduction from facilitator</p>
+          <p class="user-text inline" id="user-text-2">Introduction from facilitator</p>
         </div>
       </div>
     </div>
 
     <div class="main-container">
       <div class="instruction-message-holder inverted">
-        <span class="instruction-message"></span>
+        <span class="instruction-message" id="instruction-user-2"></span>
       </div>
       <div class="main-circle-holder">
         <img id="main-circle-empty" src="images/main_circle_empty.svg" />
@@ -76,12 +76,12 @@
         <img id="white-circle" src="images/white_circle.svg" hidden/>
         <span id="circle-text">Introduction</span>
         <img id="circle-img" src="images/introduceeachother.svg" hidden/>
-        <canvas id="fortune-wheel" width="434" height="434">
+        <canvas id="fortune-wheel" width="434" height="434" hidden>
           <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
         </canvas>
       </div>
       <div class="instruction-message-holder">
-        <span class="instruction-message"></span>
+        <span class="instruction-message" id="instruction-user-1"></span>
       </div>
     </div>
 
@@ -104,15 +104,15 @@
         </div>
         <div class="inline user-message">
           <!-- has to match the other user message -->
-          <p class="user-text inline">Introduction from facilitator</p>
+          <p class="user-text inline" id="user-text-1">Introduction from facilitator</p>
         </div>
       </div>
     </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="Winwheel.js"></script>
-  <script type="text/javascript" src="fortuneWheelScript.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
 
   <script>
     if(jQuery){
@@ -120,9 +120,11 @@
       $(".game").show();
     }
   </script>
-  
+
   <script src="levelScript.js"></script>
   <script src="script.js"></script>
   <script src="positioningScript.js"></script>
+  <script type="text/javascript" src="Winwheel.js"></script>
+  <script type="text/javascript" src="fortuneWheelScript.js"></script>
 </body>
 </html>

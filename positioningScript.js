@@ -24,7 +24,7 @@ var svg_timer_holder = $("#svg-timer-holder");
 var timer_circle = $("#timer-circle");
 
 //constants for the maths
-const RotatePerLevel = 21.1764706; // in deg
+const RotatePerLevel = 360 / 17; // in deg
 const ShrinkRatio = 3.1; // at least 3.01
 
 $(document).ready(() => {
@@ -105,7 +105,6 @@ function moveCircle(){
   main_circle_holder.css({
     "top" : top,
     "left" : left,
-    // "color" : "green"
   });
 }
 
@@ -116,7 +115,7 @@ function moveLevelDisplay(){
 
     if(parseInt($(element).attr("id").split("-")[2]) >= 7){
       top = main_circle_empty.height() - $(element).height() - top;
-      
+
       $(element).css({
         "top" : top,
       });

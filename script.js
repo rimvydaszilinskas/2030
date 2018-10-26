@@ -7,18 +7,32 @@ var time = 300; // time is displayed in seconds
 var initialOffset = '2464.9'; // radius!
 var i = 1;
 
+var game = new Game();
+
 increase_level_btn.on("click", ()=>{
-  changeMedia();
+  var level = game.next();
+  if(level != null){
+    changeMedia();
+    startTimer();
+  } else {
+
+  }
+
 });
 
 decrease_level_btn.on("click", ()=>{
+  var level = game.previous();
+  if(level != null){
 
+  } else {
+
+  }
 });
 
 //change the media to apropriate one
 function changeMedia(){
   $(".user-text").fadeOut("fast", ()=>{
-    $(".user-text").html("Introduction from facilitator!!!");
+    $(".user-text").html("Introduction from facilitator");
     $(".instruction-message").html("hello");
   }).promise().done(()=>{
     $(".user-text").fadeIn("fast", ()=>{});

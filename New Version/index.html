@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>2030 Builders</title>
+  <meta name="description" content="2030.Builders web game 2.0.1">
+  <meta name="author" content="rimvydas.site">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway" />
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  <div id="error">
+    <img src="images/logo_2030_dark.svg"/>
+    <div id="no-js">
+      <h3>JavaScript not working!</h3>
+      <h4><a href="http://2030.builders"></a>2030.Builders</h4>
+    </div>
+
+    <div id="no-jquery">
+      <h3>Unable to load sources!</h3>
+      <h4><a href="http://2030.builders"></a>2030.Builders</h4>
+    </div>
+  </div>
+
+  <div id="start-hold" hidden>
+    <img id="logo" src="images/logo_2030_dark.svg"/>
+    <h3 id="start" ><a href="game.html">Start game</a></h3>
+  </div>
+
+  <!-- add jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <!-- check if jquery is successfuly added -->
+  <!-- if not display error message -->
+  <script>
+    window.onload = () => {
+      document.getElementById("no-js").hidden = true;
+    };
+
+    if(jQuery){
+      $("#error").hide();
+      $("#start-hold").show();
+    } else{
+      document.getElementById("no-jquery").hidden = false;
+    }
+  </script>
+  <!-- add required libraries for the wheel -->
+  <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script> -->
+  <!-- add the positioning script -->
+  <!-- <script src="js/positioning.js"></script> -->
+  <!-- add the game script itself -->
+  <!-- <script src="js/game.js"></script> -->
+  <!-- add wheel of fortune library -->
+  <!-- <script src="js/libs/Winwheel.js"></script> -->
+  <!-- add wheel of fortune -->
+  <!-- <script src="js/libs/fortuneWheelScript.js"></script> -->
+
+</body>
+</html>

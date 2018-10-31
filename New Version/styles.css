@@ -1,0 +1,34 @@
+/* @author Rim@2030.builders
+ *
+ *
+ */
+
+/* main html styles */
+html{
+  height: 100%;
+  width: 100%;
+  font-family: Raleway;
+}
+
+
+body{
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+/* start page css */
+#start-hold{
+  align-items: center;
+  text-align: center;
+}
+
+/* error styles */
+#error{
+  align-items: center;
+  text-align: center;
+}
+
+/* game styles */
+#game * {
+  position: absolute;
+}

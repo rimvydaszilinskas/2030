@@ -27,8 +27,3 @@ body{
   align-items: center;
   text-align: center;
 }
-
-/* game styles */
-#game * {
-  position: absolute;
-}

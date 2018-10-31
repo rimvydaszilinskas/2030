@@ -1,6 +1,7 @@
 html{
   height: 100%;
   width: 100%;
+  font-family: Raleway;
 }
 
 body{
@@ -27,26 +28,31 @@ body{
   z-index: 2;
 }
 
+.level-color-hider{
+  position: absolute;
+  /* z-index: 10; */
+}
+
 .player-Row{
   position: absolute;
 }
 
 #white-circle{
   position: absolute;
-  z-index: 3;
+  z-index: 15;
 }
 
 #circle-text{
   position: absolute;
   font-size: 2em;
   font-weight: bold;
-  z-index: 4;
+  z-index: 16;
   text-align: center;
 }
 
 #circle-img{
   position: absolute;
-  z-index: 4;
+  z-index: 16;
 }
 
 .instruction-message-holder{
@@ -108,6 +114,7 @@ body{
 .level-plus, .level-minus{
   transform: rotate(180deg);
   cursor: pointer;
+  z-index: 5;
 }
 
 .inverted{

@@ -13,6 +13,7 @@ var circle_img = $("#circle-img");
 var video_holder = $("#video-container");
 var video = $("#video");
 var fortune_wheel = $("#fortune-wheel");
+var color_hider = $(".level-color-hider");
 
 //player elements
 var player_rows = $(".player-row");
@@ -72,6 +73,10 @@ function change(){
   positionCircleImage(false);
   //position the video and its container
   positionVideo();
+
+  positionLevelColorHider();
+
+  setLevelDisplayZIndex();
 };
 
 function resizeElements(){
@@ -252,13 +257,36 @@ function positionCircleImage(isHiderOn){
 }
 
 function positionVideo(){
-  video.width($(window).width() / 1.8)
-       .height($(window).height() / 1.8);
+  video.width($(window).width() / 2)
+       .height($(window).height() / 2);
   var spacer_left = ($(window).width() - video.width()) / 2;
   var spacer_top = ($(window).height() - video.height()) / 2;
 
   video_holder.css({
     "top" : spacer_top,
     "left" : spacer_left,
+  });
+}
+
+function positionLevelColorHider(){
+  var ratio = 1080 / 2352; // hider to the main circle
+  var height = main_circle_empty.height() * ratio;
+  color_hider.css({
+    "height" : height,
+  });
+  var left = (main_circle_empty.width() - color_hider.width()) / 2;
+  var top = (main_circle_empty.height() - color_hider.height()) / 2;
+  color_hider.css({
+    "top" : top,
+    "left" : left,
+  });
+}
+
+function setLevelDisplayZIndex(){
+  $(".level-display").each((index, element) => {
+    var id = $(element).attr("id").split("-")[2];
+    $(element).css({
+      "z-index" : parseInt(id) + 1,
+    });
   });
 }

@@ -39,6 +39,8 @@ increase_level_btn.on("click", ()=>{
     hideVideo();
   }
 
+  setLevelHider();
+
   if(fortune_wheel_active == true){
     hideFortuneWheel();
   }
@@ -69,6 +71,8 @@ decrease_level_btn.on("click", ()=>{
   if(fortune_wheel_active == true){
     hideFortuneWheel();
   }
+
+  setLevelHider();
 
   if(step != null){
     applyStep(step, game.getLevelNumber(), game.getColor());
@@ -264,4 +268,20 @@ function hideVideo(){
   });
   console.log("Hide video");
   video = false;
+}
+
+function setLevelHider(){
+  if(game.getLevelNumber() > 1){
+    $(".level-color-hider").show();
+  } else {
+    $(".level-color-hider").hide();
+  }
+
+  //set the z-index of interval
+  $(".level-color-hider").css({
+    "z-index" : parseInt(game.getLevelNumber()),
+  });
+
+  console.log("z-index set to: " + game.getLevelNumber());
+
 }

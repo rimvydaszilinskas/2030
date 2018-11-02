@@ -12,3 +12,20 @@ body{
 .row{
   padding-top: 5px;
 }
+
+.center{
+  text-align: center;
+}
+
+.inverted{
+  transform: rotate(180deg);
+}
+
+.user-message{
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.sdg-img:hover{
+  cursor: pointer;
+}

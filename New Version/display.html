@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>2030 Game</title>
+  <meta name="description" content="2030.Builders web game 2.0.1">
+  <meta name="author" content="rimvydas.site">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway" />
+  <link rel="stylesheet" href="gameStyle.css">
+  <!-- include bootstrap for some of the features -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="card-holder" style="height: 300px !important;">
+    <div class="container" >
+
+      <div class="row inverted">
+        <div class="col-md-12">
+          <p class="user-message center">
+            Click on the SDG you are working today
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg1_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg2_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg3_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg4_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg5_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg6_art.jpg" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg7_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg8_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg9_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg10_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg11_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg12_art.jpg" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg13_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg14_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg15_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg16_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/sdg17_art.jpg" />
+        </div>
+        <div class="col">
+          <img class="sdg-img img-fluid" src="images/logo_color_wheel.svg" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p class="user-message center">
+            Click on the SDG you are working today
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="game" hidden>
+
+  </div>
+  <!-- add jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <!-- check if jquery is successfuly added -->
+  <!-- if not display error message -->
+  <script>
+    window.onload = () => {
+
+    };
+
+    if(!jQuery){
+      window.location.replace("index.html");
+    }
+  </script>
+  <!-- add required libraries for the wheel -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <!-- include the flip effect lib -->
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+  <!-- add the positioning script -->
+  <script src="js/positioning.js"></script>
+  <!-- add the game script itself -->
+  <script src="js/index.js"></script>
+  <!-- add wheel of fortune library -->
+  <script src="js/libs/Winwheel.js"></script>
+  <!-- add wheel of fortune -->
+  <script src="js/libs/fortuneWheelScript.js"></script>
+
+</body>
+</html>

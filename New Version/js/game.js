@@ -1,49 +1,54 @@
-var rotated = false;
-var reversed = 0;
-const FLIP_INTERVAL = 3000;
+class Game{
+  constructor(){
+    this.data = {
+      levels : [
+        {
+          color : "red",
+          steps : [
+            {
+              specialScreen : null,
+              userMessage : "Put your goggles on and look for the play button",
+              instructionMessage : null,
+              circle : {
+                circle : true,
+                hider : false,
+                message : null,
+                img : null,
+                special : false,
+              },
+              {
+                specialScreen : "VR",
+                userMessage : "Watch the video",
+                instructionMessage: null,
+                circle : null,
+              },
+              {
+                specialScreen : null,
+                userMessage : "Scroll to discover the target click on the target you want to address and read the indicators",
+                specialInstructionMessage : true,
+                instructionMessage : {
+                  type : "cards",
+                  cards : [
+                    {
+                      title : "TARGET 1",
+                      content : "By 2030, eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day"
+                    },
+                    {
+                      title : "TARGET 2",
+                      content : "By 2030, reduce at least by half the proportion of men, women and children of all ages living in poverty in all its dimensions according to national definitions",
+                    },
+                    {
+                      title : "TARGET 3",
+                      content : "Implement nationally appropriate social protection systems and measures for all, including floors, and by 2030 achieve substiantial coverage of the poor and the vulnerable",
+                    }
+                  ]
+                },
+              }
+            },
+          ]
+        }
+      ]
 
-$(document).ready(() => {
-
-  //initialize randomly
-  init();
-
-  setInterval(()=>{
-    // randomize ammount of cards to flip
-    var cardsToFlip = Math.floor(Math.random() * 5 + 1);
-    var flipped = 0;
-
-    $(".sdg-img").each((index, element) => {
-      if(Math.floor(Math.random() * 2) === 1 && flipped < cardsToFlip){
-        $(element).toggleClass("inverted");
-        flipped++;
-      } else if(flipped >= cardsToFlip){
-        return false;
-      }
-    });
-
-  }, FLIP_INTERVAL);
-});
-
-function init(){
-  $(".sdg-img").each((index, element) => {
-
-    if(reversed >= Math.floor($(".sdg-img").length * 0.6)){
-      // do not continue to reverse if more than 60% of all are reversed
-      return false;
-    }
-
-    //get a random 0 or 1 for reversed/not reversed
-    var random = Math.floor(Math.random() * 2);
-
-    if(random === 1){
-      // make the element reversed
-      reversed++;
-      $(element).toggleClass("inverted");
-    }
-  });
+    };
+  }
 }
-
-$(".sdg-img").on("click", (e)=>{
-  // TODO: load appropriate level
-  console.log($(e.target).attr("id"));
-});

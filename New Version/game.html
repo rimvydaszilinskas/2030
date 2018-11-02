@@ -15,91 +15,65 @@
 </head>
 
 <body>
-  <div class="card-holder" style="height: 300px !important;">
-    <div class="container" >
+  <div class="game">
+    <div class="player-row inverted">
+      <img class="level-minus" src="images/navigation-negative.svg" style="display: inline-block"/>
+      <div class="level-number" style="display: inline-block">
+        <span class="level-numeric">01</span><br />
+        <span>LEVEL</span>
+      </div>
+      <img class="level-plus" src="images/navigation-positive.svg" style="display: inline-block"/>
 
-      <div class="row inverted">
-        <div class="col-md-12">
-          <p class="user-message center">
-            Click on the SDG you are working today
-          </p>
-        </div>
+      <div class="user-message inline">
+        <p class="user-text inline" id="user-text-1"></p>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg1_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg2_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg3_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg4_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg5_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg6_art.jpg" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg7_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg8_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg9_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg10_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg11_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg12_art.jpg" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg13_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg14_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg15_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg16_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/sdg17_art.jpg" />
-        </div>
-        <div class="col">
-          <img class="sdg-img img-fluid" src="images/logo_color_wheel.svg" />
-        </div>
+    <div class="main-container">
+
+      <div class="instruction-message-holder">
+        <span class="instruction-message" id="instruction-user-1"></span>
       </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <p class="user-message center">
-            Click on the SDG you are working today
-          </p>
-        </div>
+      <div class="main-circle-holder">
+        <!-- this will be always changing, 2 images for smooth transition -->
+        <img class="main-circle-empty" id="main-circle-empty-1" src="#" />
+        <img class="main-circle-empty" id="main-circle-empty-1" src="#" />
+
+        <!-- timer circle -->
+        <svg id="svg-timer-holder" width="100" height="100" xmlns="http://www.w3.org/2000/svg" hidden>
+          <circle id="timer-circle" class="timer-circle" r="150" cy="250" cx="250" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+        </svg>
+
+        <img id="circle-img" src="" hidden/>
+
+        <canvas id="fortune-wheel" width="434" height="434" hidden>
+          <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+        </canvas>
+
+        <!-- end main-circle-holder -->
       </div>
 
+      <div class="instruction-message-holder inverted">
+        <span class="instruction-message" id="instruction-user-2"></span>
+      </div>
+    <!-- end main container -->
+    </div>
+
+    <div class="player-row">
+      <img class="level-minus" src="images/navigation-negative.svg" style="display: inline-block"/>
+      <div class="level-number" style="display: inline-block">
+        <span class="level-numeric">01</span><br />
+        <span>LEVEL</span>
+      </div>
+      <img class="level-plus" src="images/navigation-positive.svg" style="display: inline-block"/>
+
+      <div class="user-message inline">
+        <p class="user-text inline" id="user-text-1"></p>
+      </div>
     </div>
   </div>
-  <div class="game" hidden>
 
-  </div>
   <!-- add jquery -->
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <!-- check if jquery is successfuly added -->
@@ -120,7 +94,7 @@
   <!-- add the positioning script -->
   <script src="js/positioning.js"></script>
   <!-- add the game script itself -->
-  <script src="js/game.js"></script>
+  <script src="js/index.js"></script>
   <!-- add wheel of fortune library -->
   <script src="js/libs/Winwheel.js"></script>
   <!-- add wheel of fortune -->

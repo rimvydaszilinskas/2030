@@ -26,6 +26,10 @@ body{
   font-size: 1.4em;
 }
 
+.sdg-img{
+  transition: 0.1s;
+}
+
 .sdg-img:hover{
   cursor: pointer;
 }

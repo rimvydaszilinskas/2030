@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>2030 Game</title>
+  <meta name="description" content="2030.Builders web game 2.0.1">
+  <meta name="author" content="rimvydas.site">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway" />
+  <link rel="stylesheet" href="gameStyle.css">
+  <!-- include bootstrap for some of the features -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="card" style="width: 200px;">
+    <div class="front" style="background-color: red">
+      Front content
+    </div>
+    <div class="back">
+      Back content1
+    </div>
+  </div>
+  <div class="card" style="width: 200px;">
+    <div class="front" style="background-color: red">
+      Front content
+    </div>
+    <div class="back">
+      Back content2
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+  <script>
+    $(function($) {
+      // $(".card").each((index, element) =>{
+      //   console.log(element);
+      //   $(element).flip({axis : "x", trigger : "hover"});
+      // });
+      $(".card").flip({axis : "x"});
+    });
+  </script>
+</body>
+</html>

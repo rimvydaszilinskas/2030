@@ -45,5 +45,10 @@ function init(){
 
 $(".sdg-img").on("click", (e)=>{
   // TODO: load appropriate level
-  console.log($(e.target).attr("id"));
+  if($(e.target).attr("id") === "start"){
+    //redirect to the first level
+    console.log($(e.target).attr("id"));
+  } else {
+    // redirect to the specific level
+  }
 });

@@ -33,3 +33,40 @@ body{
 .sdg-img:hover{
   cursor: pointer;
 }
+
+.level-plus, .level-minus{
+  transform: rotate(180deg);
+  cursor: pointer;
+  z-index: 5;
+  margin-bottom : 25px;
+}
+
+.main-circle{
+  position: absolute;
+}
+
+.player-row{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding-left: 25px;
+}
+
+.player-row.inverted{
+  top: 0 !important;
+  bottom: auto !important;
+}
+
+.level-number{
+  background-color: #e42832;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: white;
+}
+
+.inline{
+  display: inline;
+}

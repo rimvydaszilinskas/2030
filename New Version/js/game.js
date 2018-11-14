@@ -3,50 +3,117 @@ class Game{
     this.data = {
       levels : [
         {
-          color : "red",
+          color : "ea1d2d",
           steps : [
             {
-              specialScreen : null,
-              userMessage : "Put your goggles on and look for the play button",
-              instructionMessage : null,
+              special : false,
+              instruction : null,
+              userMessage : "Click on thr target you want to address and read the indicators",
               circle : {
-                circle : true,
-                hider : false,
-                message : null,
-                img : null,
-                special : false,
+                image : "images/sdg1_art.jpg",
+                text : null,
+                special : null,
               },
-              {
-                specialScreen : "VR",
-                userMessage : "Watch the video",
-                instructionMessage: null,
-                circle : null,
-              },
-              {
-                specialScreen : null,
-                userMessage : "Scroll to discover the target click on the target you want to address and read the indicators",
-                specialInstructionMessage : true,
-                instructionMessage : {
-                  type : "cards",
-                  cards : [
-                    {
-                      title : "TARGET 1",
-                      content : "By 2030, eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day"
-                    },
-                    {
-                      title : "TARGET 2",
-                      content : "By 2030, reduce at least by half the proportion of men, women and children of all ages living in poverty in all its dimensions according to national definitions",
-                    },
-                    {
-                      title : "TARGET 3",
-                      content : "Implement nationally appropriate social protection systems and measures for all, including floors, and by 2030 achieve substiantial coverage of the poor and the vulnerable",
-                    }
-                  ]
-                },
-              }
+            },
+            {
+              special : true,
+              instruction: null,
+              userMessage : "Match the SDG facts",
+              circle: null,
+              media : "match_showcase",
+            },
+            {
+              special : true,
+              instrution : null,
+              userMessage: null,
+              circle: null,
+              media : "match_game",
             },
           ]
-        }
+        },
+        {
+          color: "d19f2a",
+          steps: [
+            {
+              special : false,
+              instruction : null,
+              userMessage : "Talk in two about how does this problem affect you at the personal level",
+              circle: {
+                image : null,
+                text : "timer",
+                special : "timer",
+              },
+            },
+            {
+              special : false,
+              instruction : null,
+              userMessage : "Outside of your workplace how can you see this being a problem? Continue talking with each other",
+              circle: {
+                image : null,
+                text : "timer",
+                special : "timer",
+              },
+            },
+            {
+              special : true,
+              instruction : null,
+              userMessage : "Click the icon to roll the dice",
+              circle : null,
+              media : "role_dice",
+            },
+            {
+              special : false,
+              instruction : null,
+              userMessage : "Choose company",
+              circle: {
+                image : null,
+                text : null,
+              },
+            },
+          ]
+        },
+        {
+          color : "2c9a47",
+          steps : [
+            {
+              special : false,
+              instrution : {
+                type: "img",
+                img : "";
+              },
+              userMessage : "Write down as many ideas that you have that could be a solution to the problem",
+              circle : {
+                image : null,
+                text : null,
+              },
+            },
+            {
+              special : true,
+              instruction : null,
+              userMessage : "When highlighted share your ideas with the team",
+              circle : {
+                image : null,
+                text : null,
+              },
+              media : "turn_picker",
+            },
+          ]
+        },
+        {
+          color : "8f1838",
+          steps : [
+            {
+              special : true,
+              instruction : null,
+              userMessage: "When your icon is highlighted, click \"Spin!\"",
+              circle : null,
+              media : "role_picker",
+            },
+            {
+              special : 
+            }
+          ]
+        },
       ]
 
     };

@@ -23,7 +23,7 @@ body{
 
 .user-message{
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.1em;
 }
 
 .sdg-img{
@@ -48,13 +48,14 @@ body{
 .player-row{
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 25px;
   padding-left: 25px;
 }
 
 .player-row.inverted{
-  top: 0 !important;
+  top: 25px !important;
   bottom: auto !important;
+
 }
 
 .level-number{
@@ -69,4 +70,28 @@ body{
 
 .inline{
   display: inline;
+}
+
+.instruction-message-holder{
+  position: absolute;
+  font-size: 1.1em;
+  max-width: 25%;
+  text-align: center;
+}
+
+.user-text{
+
+  max-width: 33%;
+}
+
+#circle-text{
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+#circle-img{
+  position: absolute;
+
 }

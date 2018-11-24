@@ -7,7 +7,16 @@ var startTime = null;
 $(document).ready(()=>{
   var facts = {
     "facts" : [
-      "fact1", "fact2", "fact3", "fact4", "fact5", "fact6", "fact7", "fact8", "fact9", "fact10"
+      "fact1", 
+      "fact2", 
+      "fact3", 
+      "fact4",
+      "fact5", 
+      "fact6", 
+      "fact7", 
+      "fact8", 
+      "fact9", 
+      "fact10"
     ],
   };
   init(facts);
@@ -37,9 +46,11 @@ $(".card").click(function(event){
         if($($(opened[0]).children()[1]).text().trim() === $($(this).children()[1]).text().trim() && opened[0] !== this){
           // $(this).hide();
           // $(opened.pop()).hide();
+          var matched = opened.pop();
           $(this).off();
-          $(opened.pop()).off();
+          $(matched).off();
           factsLeft--;
+
           if(factsLeft === 0){
             var result = (Date.now() - startTime) / 1000;
             $(".leftFacts").html("Congratulations! Your time is : " + result + " seconds!");

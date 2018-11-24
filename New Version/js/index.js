@@ -46,9 +46,12 @@ function init(){
 $(".sdg-img").on("click", (e)=>{
   // TODO: load appropriate level
   if($(e.target).attr("id") === "start"){
+    window.location.href = "levels/level-1.html";
     //redirect to the first level
-    console.log($(e.target).attr("id"));
+    // console.log($(e.target).attr("id"));
   } else {
-    // redirect to the specific level
+    var level = e.target.id.split("-")[1];
+    // console.log(level);
+    window.location.href = "levels/level-" + level + ".html";
   }
 });
